@@ -1068,7 +1068,7 @@
                 <p class="package-duration">60 min</p>
                 <p class="package-description">Your skin, but better. Lightweight, breathable coverage that enhances your natural beauty.</p>
                 <div class="package-price">
-                  <span>$150</span>
+                  <span>R150</span>
                   <span class="price-unit">/ session</span>
                 </div>
               </div>
@@ -1085,7 +1085,7 @@
                 <p class="package-duration">90 min</p>
                 <p class="package-description">Full coverage perfection for events, parties, and nights out. Bold, beautiful, unforgettable.</p>
                 <div class="package-price">
-                  <span>$250</span>
+                  <span>R250</span>
                   <span class="price-unit">/ session</span>
                 </div>
               </div>
@@ -1291,7 +1291,7 @@
       document.querySelectorAll('.package-card').forEach(card => {
         card.classList.remove('selected');
       });
-      document.querySelector(`[data-package-id="R{packageId}"]`).classList.add('selected');
+      document.querySelector(`[data-package-id="${packageId}"]`).classList.add('selected');
       
       updateSummary();
       validateForm();
@@ -1305,7 +1305,7 @@
       }
       
       // Update UI
-      const card = document.querySelector(`[data-addon-id="R{addonId}"]`);
+      const card = document.querySelector(`[data-addon-id="${addonId}"]`);
       if (selectedAddons.has(addonId)) {
         card.classList.add('selected');
       } else {
@@ -1330,8 +1330,8 @@
       const pkg = packages[selectedPackage];
       html += `
         <div class="summary-line">
-          <span class="item-name">R{pkg.name}</span>
-          <span class="item-price">RR{pkg.price}</span>
+          <span class="item-name">${pkg.name}</span>
+          <span class="item-price">R${pkg.price}</span>
         </div>
       `;
       
@@ -1340,8 +1340,8 @@
         const addon = addons[addonId];
         html += `
           <div class="summary-line addon-line">
-            <span class="item-name">+ R{addon.name}</span>
-            <span class="item-price">RR{addon.price}</span>
+            <span class="item-name">+ ${addon.name}</span>
+            <span class="item-price">R${addon.price}</span>
           </div>
         `;
       });
@@ -1361,9 +1361,9 @@
       const tax = subtotal * 0.08;
       const total = subtotal + tax;
       
-      document.getElementById('subtotalPrice').textContent = `RR{subtotal}`;
-      document.getElementById('taxPrice').textContent = `RR{tax.toFixed(2)}`;
-      document.getElementById('totalPrice').textContent = `RR{total.toFixed(2)}`;
+      document.getElementById('subtotalPrice').textContent = `R${subtotal}`;
+      document.getElementById('taxPrice').textContent = `R${tax.toFixed(2)}`;
+      document.getElementById('totalPrice').textContent = `R${total.toFixed(2)}`;
     }
 
     function validateForm() {
