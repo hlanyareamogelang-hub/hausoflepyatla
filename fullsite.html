@@ -1102,7 +1102,7 @@
                 <p class="package-duration">3 hours</p>
                 <p class="package-description">Timeless elegance for your special day. Includes trial session and day-of touch-up kit.</p>
                 <div class="package-price">
-                  <span>$650</span>
+                  <span>R650</span>
                   <span class="price-unit">/ session</span>
                 </div>
               </div>
@@ -1119,7 +1119,7 @@
                 <p class="package-duration">2 hours</p>
                 <p class="package-description">Camera-ready looks for editorial, headshots, and content creation. HD finish guaranteed.</p>
                 <div class="package-price">
-                  <span>$300</span>
+                  <span>R300</span>
                   <span class="price-unit">/ session</span>
                 </div>
               </div>
@@ -1143,7 +1143,7 @@
                   </div>
                 </div>
                 <p class="addon-description">Strip lash application</p>
-                <span class="addon-price">+$35</span>
+                <span class="addon-price">+R35</span>
               </div>
 
               <!-- Hair Styling -->
@@ -1155,7 +1155,7 @@
                   </div>
                 </div>
                 <p class="addon-description">Basic styling included</p>
-                <span class="addon-price">+$75</span>
+                <span class="addon-price">+R75</span>
               </div>
             </div>
           </div>
@@ -1171,15 +1171,15 @@
             <div class="summary-totals">
               <div class="total-line">
                 <span>Subtotal</span>
-                <span id="subtotalPrice">$0</span>
+                <span id="subtotalPrice">R0</span>
               </div>
               <div class="total-line">
                 <span>Tax (8%)</span>
-                <span id="taxPrice">$0.00</span>
+                <span id="taxPrice">R0.00</span>
               </div>
               <div class="total-line grand-total">
                 <span>Total</span>
-                <span id="totalPrice">$0.00</span>
+                <span id="totalPrice">R0.00</span>
               </div>
             </div>
 
@@ -1291,7 +1291,7 @@
       document.querySelectorAll('.package-card').forEach(card => {
         card.classList.remove('selected');
       });
-      document.querySelector(`[data-package-id="${packageId}"]`).classList.add('selected');
+      document.querySelector(`[data-package-id="R{packageId}"]`).classList.add('selected');
       
       updateSummary();
       validateForm();
@@ -1305,7 +1305,7 @@
       }
       
       // Update UI
-      const card = document.querySelector(`[data-addon-id="${addonId}"]`);
+      const card = document.querySelector(`[data-addon-id="R{addonId}"]`);
       if (selectedAddons.has(addonId)) {
         card.classList.add('selected');
       } else {
@@ -1330,8 +1330,8 @@
       const pkg = packages[selectedPackage];
       html += `
         <div class="summary-line">
-          <span class="item-name">${pkg.name}</span>
-          <span class="item-price">$${pkg.price}</span>
+          <span class="item-name">R{pkg.name}</span>
+          <span class="item-price">RR{pkg.price}</span>
         </div>
       `;
       
@@ -1340,8 +1340,8 @@
         const addon = addons[addonId];
         html += `
           <div class="summary-line addon-line">
-            <span class="item-name">+ ${addon.name}</span>
-            <span class="item-price">$${addon.price}</span>
+            <span class="item-name">+ R{addon.name}</span>
+            <span class="item-price">RR{addon.price}</span>
           </div>
         `;
       });
@@ -1361,9 +1361,9 @@
       const tax = subtotal * 0.08;
       const total = subtotal + tax;
       
-      document.getElementById('subtotalPrice').textContent = `$${subtotal}`;
-      document.getElementById('taxPrice').textContent = `$${tax.toFixed(2)}`;
-      document.getElementById('totalPrice').textContent = `$${total.toFixed(2)}`;
+      document.getElementById('subtotalPrice').textContent = `RR{subtotal}`;
+      document.getElementById('taxPrice').textContent = `RR{tax.toFixed(2)}`;
+      document.getElementById('totalPrice').textContent = `RR{total.toFixed(2)}`;
     }
 
     function validateForm() {
